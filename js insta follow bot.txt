@@ -1,4 +1,4 @@
-	setInterval(function(){ document.querySelector('.button-2IFFQ4').click(); }, 10000);
+setInterval(function(){ document.querySelector('.button-2IFFQ4').click(); }, 10000);
 	
 	
 	
@@ -19,51 +19,3 @@
 
 
 
-
-
-
-
-
-<iframe src="https://open.spotify.com/embed?uri=spotify%3Aplaylist%3A37i9dQZF1DWVDCraF986xg" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-//// DISCORD BOT
-
-const Discord = require("discord.js")
-const { prefix, token } = require('./config.json')
-const client = new Discord.Client()
-
-client.on("ready", () => {
-  console.log("connected as" + client.user.tag)
-
-  client.user.setActivity("G", { type: "WATCHING" })
-
-  client.guilds.cache.forEach((guild) => {
-    console.log(guild.name)
-    guild.channels.cache.forEach((channel) => {
-      console.log(` - ${channel.name} ${channel.type} ${channel.id}`)
-    })
-    //748069096402452513 for general
-
-
-  })
-  let x = client.channels.cache.get("748069096402452513")
-
-
-  x.send("https://www.youtube.com/watch?v=Mus_vwhTCq0")
-
-
-})
-
-client.on('message', (receivedMessage) => {
-  if (receivedMessage.author == client.user) {
-    return
-  }
-  //receivedMessage.channel.send(receivedMessage.author.toString() + ":" + receivedMessage.content)
-
-  if (receivedMessage.startWith("r")) {
-    processCommand(receivedMessage)
-
-  }
-})
-
-client.login("")
